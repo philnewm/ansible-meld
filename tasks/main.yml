@@ -1,0 +1,10 @@
+---
+
+# tasks file for ansible-role-template
+
+
+- name: "Desired state is {{ state }}"
+  ansible.builtin.include_tasks:
+    file: "{{ state }}.yml"
+
+...
