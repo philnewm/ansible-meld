@@ -1,7 +1,7 @@
 galaxy_info:
   role_name: role_template
   author: author_name
-  description: ansible-role-template description
+  description: ansible-meld description
 
   license: some_license
 

@@ -1,6 +1,6 @@
 ---
 
-# Tasks to remove ansible-role-template
+# Tasks to remove ansible-meld
 
 
 - name: Remove unused dependencies
