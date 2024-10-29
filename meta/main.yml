@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: role_template
+  role_name: meld
   author: author_name
   description: ansible-meld description
 

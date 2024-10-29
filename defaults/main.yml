@@ -3,5 +3,25 @@
 # Variables for ansible-meld
 
 state: present
+custom_settings: true
+gnome_favorite: true
+
+meld_package: meld
+
+
+launcher: 
+  "RedHat": "org.gnome.Meld.desktop"
+  "Debian": "org.gnome.meld.desktop"
+
+meld_settings:
+  "/org/gnome/meld/folder-columns": "[('size', true), ('modification time', true), ('permissions', true), ('iso-time', false)]"
+  "/org/gnome/meld/highlight-current-line": "true"
+  "/org/gnome/meld/highlight-syntax": "true"
+  "/org/gnome/meld/indent-width": "4"
+  "/org/gnome/meld/prefer-dark-theme": "true"
+  "/org/gnome/meld/show-line-numbers": "true"
+  "/org/gnome/meld/style-scheme": "'oblivion'"
+  "/org/gnome/meld/use-system-font": "false"
+  "/org/gnome/meld/wrap-mode": "'none'"
 
 ...
