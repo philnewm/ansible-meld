@@ -3,6 +3,13 @@
 # Tasks to remove ansible-meld
 
 
+- name: Remove meld
+  become: true
+  when: meld_package in ansible_facts.packages
+  ansible.builtin.package:
+    name: "{{ meld_package }}"
+    state: absent
+
 - name: Remove unused dependencies
   become: true
   ansible.builtin.package:

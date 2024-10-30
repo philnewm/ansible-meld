@@ -2,4 +2,35 @@
 
 # tests to verify role functionality
 
+
+- name: Gather package facts
+  ansible.builtin.package_facts:
+
+- name: Test installed package
+  ansible.builtin.assert:
+    that:
+      - meld_package in ansible_facts.packages
+    fail_msg: "Package '{{ meld_package }}' is not installed"
+    quiet: true
+
+- name: Get meld settings
+  loop: "{{ meld_settings.keys() }}"
+  community.general.dconf:
+    key: "{{ item }}"
+    state: read
+  register: dconf_list
+
+- name: Test meld settings
+  loop: "{{ dconf_list.results }}"
+  loop_control:
+    loop_var: entry
+    label: "{{ entry.item }}"
+  ansible.builtin.assert:
+    that:
+      - entry.value == meld_settings[entry.item]
+    fail_msg: |
+      "Expected value '{{ meld_settings[entry.item] }}'
+      but got '{{ entry.value }}' instead for key '{{ entry.item }}'."
+    quiet: true
+
 ...
